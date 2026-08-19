@@ -26,9 +26,7 @@
       padding: 0;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -77,9 +75,7 @@
       text-transform: uppercase;
     }
 
-    .header-nome span {
-      color: var(--laranja-vivo);
-    }
+    .header-nome span { color: var(--laranja-vivo); }
 
     .header-sub {
       font-size: 0.65rem;
@@ -158,7 +154,7 @@
       outline-offset: 3px;
     }
 
-    /* ─── SECOES GERAIS ───────────────────────────── */
+    /* ─── SEÇÕES GERAIS ───────────────────────────── */
     section {
       padding: 56px 24px;
       border-bottom: 1px solid var(--borda);
@@ -181,9 +177,7 @@
       line-height: 1.2;
     }
 
-    .section-title span {
-      color: var(--laranja-vivo);
-    }
+    .section-title span { color: var(--laranja-vivo); }
 
     .section-body {
       font-size: 0.97rem;
@@ -192,9 +186,7 @@
       max-width: 640px;
     }
 
-    .section-body + .section-body {
-      margin-top: 12px;
-    }
+    .section-body + .section-body { margin-top: 12px; }
 
     /* ─── SOBRE ───────────────────────────────────── */
     .sobre-grid {
@@ -205,9 +197,7 @@
     }
 
     @media (min-width: 600px) {
-      .sobre-grid {
-        grid-template-columns: 1fr 1fr;
-      }
+      .sobre-grid { grid-template-columns: 1fr 1fr; }
     }
 
     .sobre-card {
@@ -242,9 +232,7 @@
     }
 
     /* ─── CONTATO ─────────────────────────────────── */
-    .contato-section {
-      background-color: #050505;
-    }
+    .contato-section { background-color: #050505; }
 
     .contato-intro {
       font-size: 0.97rem;
@@ -262,9 +250,7 @@
     }
 
     @media (min-width: 600px) {
-      .contato-grid {
-        grid-template-columns: 1fr 1fr;
-      }
+      .contato-grid { grid-template-columns: 1fr 1fr; }
     }
 
     .contato-card {
@@ -347,69 +333,99 @@
       outline-offset: 3px;
     }
 
-    /* ─── LEGAL ───────────────────────────────────── */
-    .legal-grid {
+    /* ─── LEGAL — BOTÕES GRANDES ──────────────────── */
+    .legal-bloco {
+      margin-top: 40px;
+      padding-top: 36px;
+      border-top: 1px solid var(--borda);
+      max-width: 680px;
+    }
+
+    .legal-bloco-titulo {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--laranja);
+      margin-bottom: 8px;
+    }
+
+    .legal-bloco-desc {
+      font-size: 0.9rem;
+      color: var(--texto-suave);
+      margin-bottom: 20px;
+    }
+
+    .legal-botoes {
       display: grid;
       grid-template-columns: 1fr;
       gap: 14px;
-      margin-top: 28px;
-      max-width: 520px;
     }
 
     @media (min-width: 500px) {
-      .legal-grid {
-        grid-template-columns: 1fr 1fr;
-      }
+      .legal-botoes { grid-template-columns: 1fr 1fr; }
     }
 
-    .legal-card {
-      background-color: var(--card-2);
-      border: 1px solid var(--borda);
-      border-radius: 12px;
-      padding: 22px 20px;
-      text-decoration: none;
+    .legal-btn {
       display: flex;
       align-items: center;
       gap: 14px;
-      transition: border-color 0.2s, background-color 0.2s;
+      background-color: var(--card-1);
+      border: 1px solid var(--borda-laranja);
+      border-radius: 12px;
+      padding: 18px 20px;
+      text-decoration: none;
+      transition: background-color 0.2s, border-color 0.2s;
+      min-height: 72px;
     }
 
-    .legal-card:hover,
-    .legal-card:focus {
-      border-color: var(--laranja);
+    .legal-btn:hover,
+    .legal-btn:focus {
       background-color: #150800;
+      border-color: var(--laranja);
       outline: none;
     }
 
-    .legal-card-icon {
-      width: 38px;
-      height: 38px;
-      background-color: var(--borda-laranja);
-      border-radius: 9px;
+    .legal-btn-icon {
+      width: 42px;
+      height: 42px;
+      background: linear-gradient(135deg, var(--laranja-escuro), var(--laranja-vivo));
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
     }
 
-    .legal-card-text span {
-      display: block;
-      font-size: 0.7rem;
+    .legal-btn-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .legal-btn-text small {
+      font-size: 0.65rem;
       color: var(--texto-suave);
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      margin-bottom: 3px;
     }
 
-    .legal-card-text strong {
-      font-size: 0.95rem;
-      font-weight: 700;
+    .legal-btn-text strong {
+      font-size: 0.97rem;
       color: var(--texto);
+      font-weight: 700;
     }
 
-    .legal-card:hover .legal-card-text strong,
-    .legal-card:focus .legal-card-text strong {
+    .legal-btn:hover .legal-btn-text strong,
+    .legal-btn:focus .legal-btn-text strong {
       color: var(--laranja-vivo);
+    }
+
+    .legal-btn-arrow {
+      margin-left: auto;
+      color: var(--laranja);
+      font-size: 1.1rem;
+      flex-shrink: 0;
     }
 
     /* ─── FOOTER ──────────────────────────────────── */
@@ -429,9 +445,7 @@
       margin-bottom: 4px;
     }
 
-    .footer-logo span {
-      color: var(--laranja-vivo);
-    }
+    .footer-logo span { color: var(--laranja-vivo); }
 
     .footer-slogan {
       font-size: 0.75rem;
@@ -457,17 +471,14 @@
     }
 
     .footer-links a:hover,
-    .footer-links a:focus {
-      color: var(--laranja-vivo);
-      text-decoration: underline;
-    }
+    .footer-links a:focus { color: var(--laranja-vivo); text-decoration: underline; }
 
     .footer-copy {
       font-size: 0.78rem;
       color: #444;
     }
 
-    /* ─── DIVISOR LARANJA ─────────────────────────── */
+    /* ─── DIVISOR ─────────────────────────────────── */
     .divisor {
       height: 2px;
       background: linear-gradient(90deg, transparent, var(--laranja), transparent);
@@ -477,37 +488,11 @@
 
     /* ─── RESPONSIVO ──────────────────────────────── */
     @media (min-width: 768px) {
-      section {
-        padding: 72px 48px;
-      }
-
-      .hero {
-        padding: 96px 48px 104px;
-      }
-
-      footer {
-        padding: 48px 48px 60px;
-      }
+      section { padding: 72px 48px; }
+      .hero { padding: 96px 48px 104px; }
+      footer { padding: 48px 48px 60px; }
     }
 
-    @media (min-width: 1024px) {
-      .hero,
-      section,
-      footer {
-        max-width: 900px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .hero {
-        max-width: 100%;
-        padding: 104px 80px 112px;
-      }
-
-      .hero h1 { font-size: 3.2rem; }
-    }
-
-    /* ─── FOCO ACESSIBILIDADE ─────────────────────── */
     :focus-visible {
       outline: 2px solid var(--laranja-vivo);
       outline-offset: 3px;
@@ -516,9 +501,7 @@
 </head>
 <body>
 
-<!-- ══════════════════════════════════════
-     HEADER
-══════════════════════════════════════════ -->
+<!-- HEADER -->
 <header role="banner">
   <div class="header-inner">
     <svg class="header-logo-icon" viewBox="0 0 36 36" fill="none" aria-hidden="true" focusable="false">
@@ -534,10 +517,9 @@
   </div>
 </header>
 
-<!-- ══════════════════════════════════════
-     HERO
-══════════════════════════════════════════ -->
 <main id="conteudo-principal">
+
+  <!-- HERO -->
   <section class="hero" aria-labelledby="hero-titulo">
     <div class="hero-badge" aria-label="Site oficial do aplicativo">Site Oficial do Aplicativo</div>
     <h1 id="hero-titulo">Informação local.<br/><em>Jornalismo independente.</em></h1>
@@ -553,9 +535,7 @@
 
   <hr class="divisor"/>
 
-  <!-- ══════════════════════════════════════
-       SOBRE O APLICATIVO
-  ══════════════════════════════════════════ -->
+  <!-- SOBRE -->
   <section id="sobre" aria-labelledby="sobre-titulo">
     <p class="section-label">O Aplicativo</p>
     <h2 class="section-title" id="sobre-titulo">Sobre o <span>Horizonte News</span></h2>
@@ -572,7 +552,6 @@
     </p>
 
     <div class="sobre-grid" role="list">
-
       <div class="sobre-card" role="listitem">
         <div class="sobre-card-icon" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -614,15 +593,12 @@
         <h3>Fácil de usar</h3>
         <p>Interface simples e acessível, pensada para todos os perfis de usuários.</p>
       </div>
-
     </div>
   </section>
 
   <hr class="divisor"/>
 
-  <!-- ══════════════════════════════════════
-       CONTATO OFICIAL / SUPORTE
-  ══════════════════════════════════════════ -->
+  <!-- CONTATO + LEGAL JUNTOS -->
   <section id="contato" class="contato-section" aria-labelledby="contato-titulo">
     <p class="section-label">Suporte</p>
     <h2 class="section-title" id="contato-titulo">Contato Oficial <span>/ Suporte</span></h2>
@@ -647,11 +623,9 @@
             <div class="contato-card-titulo">Suporte por e-mail</div>
           </div>
         </div>
-
         <div class="contato-dado" aria-label="Endereço de e-mail: diego.magno321@gmail.com">
           diego.magno321@gmail.com
         </div>
-
         <a href="mailto:diego.magno321@gmail.com"
            class="contato-btn"
            aria-label="Enviar e-mail para diego.magno321@gmail.com">
@@ -677,11 +651,9 @@
             <div class="contato-card-titulo">Suporte por WhatsApp</div>
           </div>
         </div>
-
         <div class="contato-dado" aria-label="Número de WhatsApp: (85) 99413-0806">
           (85) 99413-0806
         </div>
-
         <a href="https://wa.me/5585994130806"
            class="contato-btn"
            target="_blank"
@@ -696,9 +668,71 @@
       </div>
 
     </div>
+
+    <!-- BLOCO LEGAL DENTRO DA SEÇÃO DE CONTATO -->
+    <div class="legal-bloco" role="region" aria-label="Informações Legais">
+      <p class="legal-bloco-titulo">Informações Legais</p>
+      <p class="legal-bloco-desc">Acesse os documentos oficiais do aplicativo Horizonte News.</p>
+
+      <div class="legal-botoes">
+
+        <a href="https://astelee.github.io/horizonte-news-privacy/"
+           class="legal-btn"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Acessar Política de Privacidade (abre em nova aba)">
+          <div class="legal-btn-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M10 2L3 5v5c0 4.1 3 7.9 7 9 4-1.1 7-4.9 7-9V5l-7-3z" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"/>
+              <path d="M7 10l2 2 4-4" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="legal-btn-text">
+            <small>Documento oficial</small>
+            <strong>Política de Privacidade</strong>
+          </div>
+          <span class="legal-btn-arrow" aria-hidden="true">›</span>
+        </a>
+
+        <a href="https://astelee.github.io/horizonte_termos/"
+           class="legal-btn"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Acessar Termos de Uso (abre em nova aba)">
+          <div class="legal-btn-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <rect x="4" y="2" width="12" height="16" rx="2" stroke="#fff" stroke-width="1.7"/>
+              <path d="M7 7h6M7 10h6M7 13h4" stroke="#fff" stroke-width="1.7" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="legal-btn-text">
+            <small>Documento oficial</small>
+            <strong>Termos de Uso</strong>
+          </div>
+          <span class="legal-btn-arrow" aria-hidden="true">›</span>
+        </a>
+
+      </div>
+    </div>
   </section>
 
-  <hr class="divisor"/>
+</main>
 
-  <!-- ══════════════════════════════════════
-       INFORMAÇÕES
+<!-- FOOTER -->
+<footer role="contentinfo">
+  <div class="footer-logo">HORIZONTE <span>NEWS</span></div>
+  <div class="footer-slogan">Jornalismo Independente</div>
+  <nav class="footer-links" aria-label="Links do rodapé">
+    <a href="https://astelee.github.io/horizonte-news-privacy/"
+       target="_blank"
+       rel="noopener noreferrer">Política de Privacidade</a>
+    <a href="https://astelee.github.io/horizonte_termos/"
+       target="_blank"
+       rel="noopener noreferrer">Termos de Uso</a>
+    <a href="#contato">Contato</a>
+  </nav>
+  <p class="footer-copy">© 2026 Horizonte News. Todos os direitos reservados.</p>
+</footer>
+
+</body>
+</html>
