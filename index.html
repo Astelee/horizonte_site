@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Horizonte News - Jornalismo Independente</title>
+  <meta name="description" content="Site oficial do Horizonte News, aplicativo de jornalismo independente com notícias de Horizonte, Ceará."/>
+  <meta name="theme-color" content="#E65100"/>
+  <style>
+    :root {
+      --laranja:        #E65100;
+      --laranja-vivo:   #F57C00;
+      --laranja-escuro: #BF360C;
+      --preto:          #000000;
+      --card-1:         #0A0A0A;
+      --card-2:         #111111;
+      --borda:          #1E1E1E;
+      --borda-laranja:  #3A1A00;
+      --texto:          #FFFFFF;
+      --texto-suave:    #9E9E9E;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--preto);
+      color: var(--texto);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── HEADER ──────────────────────────────────── */
+    header {
+      background-color: #050505;
+      border-bottom: 1px solid var(--borda);
+      padding: 18px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .header-logo-icon {
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
+    }
+
+    .header-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .header-nome {
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      color: var(--texto);
+      text-transform: uppercase;
+    }
+
+    .header-nome span {
+      color: var(--laranja-vivo);
+    }
+
+    .header-sub {
+      font-size: 0.65rem;
+      color: var(--texto-suave);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    /* ─── HERO ────────────────────────────────────── */
+    .hero {
+      padding: 64px 24px 72px;
+      text-align: center;
+      background:
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(230,81,0,0.18) 0%, transparent 70%),
+        var(--preto);
+      border-bottom: 1px solid var(--borda);
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background-color: var(--borda-laranja);
+      color: var(--laranja-vivo);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 999px;
+      margin-bottom: 24px;
+      border: 1px solid rgba(230,81,0,0.3);
+    }
+
+    .hero h1 {
+      font-size: clamp(1.9rem, 7vw, 3rem);
+      font-weight: 900;
+      line-height: 1.15;
+      color: var(--texto);
+      margin-bottom: 20px;
+      letter-spacing: -0.01em;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--laranja-vivo);
+    }
+
+    .hero-desc {
+      font-size: 1rem;
+      color: var(--texto-suave);
+      max-width: 480px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--laranja-escuro), var(--laranja-vivo));
+      color: #fff;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+      padding: 15px 32px;
+      border-radius: 10px;
+      letter-spacing: 0.03em;
+      box-shadow: 0 4px 20px rgba(230,81,0,0.35);
+      transition: opacity 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus {
+      opacity: 0.88;
+      box-shadow: 0 6px 28px rgba(230,81,0,0.5);
+      outline: 2px solid var(--laranja-vivo);
+      outline-offset: 3px;
+    }
+
+    /* ─── SECOES GERAIS ───────────────────────────── */
+    section {
+      padding: 56px 24px;
+      border-bottom: 1px solid var(--borda);
+    }
+
+    .section-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--laranja);
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-size: clamp(1.35rem, 4vw, 1.75rem);
+      font-weight: 800;
+      color: var(--texto);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .section-title span {
+      color: var(--laranja-vivo);
+    }
+
+    .section-body {
+      font-size: 0.97rem;
+      color: var(--texto-suave);
+      line-height: 1.75;
+      max-width: 640px;
+    }
+
+    .section-body + .section-body {
+      margin-top: 12px;
+    }
+
+    /* ─── SOBRE ───────────────────────────────────── */
+    .sobre-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    @media (min-width: 600px) {
+      .sobre-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .sobre-card {
+      background-color: var(--card-2);
+      border: 1px solid var(--borda);
+      border-radius: 12px;
+      padding: 22px 20px;
+    }
+
+    .sobre-card-icon {
+      width: 38px;
+      height: 38px;
+      background: linear-gradient(135deg, var(--laranja-escuro), var(--laranja-vivo));
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+    }
+
+    .sobre-card h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--texto);
+      margin-bottom: 6px;
+    }
+
+    .sobre-card p {
+      font-size: 0.88rem;
+      color: var(--texto-suave);
+      line-height: 1.6;
+    }
+
+    /* ─── CONTATO ─────────────────────────────────── */
+    .contato-section {
+      background-color: #050505;
+    }
+
+    .contato-intro {
+      font-size: 0.97rem;
+      color: var(--texto-suave);
+      max-width: 520px;
+      margin-bottom: 32px;
+      line-height: 1.7;
+    }
+
+    .contato-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      max-width: 680px;
+    }
+
+    @media (min-width: 600px) {
+      .contato-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .contato-card {
+      background-color: var(--card-1);
+      border: 1px solid var(--borda-laranja);
+      border-radius: 14px;
+      padding: 28px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .contato-card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .contato-icon-wrap {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, var(--laranja-escuro), var(--laranja-vivo));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .contato-card-tipo {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--laranja);
+      margin-bottom: 2px;
+    }
+
+    .contato-card-titulo {
+      font-size: 0.97rem;
+      font-weight: 700;
+      color: var(--texto);
+    }
+
+    .contato-dado {
+      background-color: #111;
+      border: 1px solid var(--borda);
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-size: 0.93rem;
+      font-weight: 600;
+      color: var(--laranja-vivo);
+      word-break: break-all;
+      letter-spacing: 0.01em;
+    }
+
+    .contato-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: linear-gradient(135deg, var(--laranja-escuro), var(--laranja-vivo));
+      color: #fff;
+      font-size: 0.88rem;
+      font-weight: 700;
+      text-decoration: none;
+      padding: 13px 18px;
+      border-radius: 9px;
+      letter-spacing: 0.03em;
+      transition: opacity 0.2s, box-shadow 0.2s;
+      box-shadow: 0 3px 14px rgba(230,81,0,0.3);
+      min-height: 48px;
+    }
+
+    .contato-btn:hover,
+    .contato-btn:focus {
+      opacity: 0.85;
+      box-shadow: 0 5px 20px rgba(230,81,0,0.5);
+      outline: 2px solid var(--laranja-vivo);
+      outline-offset: 3px;
+    }
+
+    /* ─── LEGAL ───────────────────────────────────── */
+    .legal-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-top: 28px;
+      max-width: 520px;
+    }
+
+    @media (min-width: 500px) {
+      .legal-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .legal-card {
+      background-color: var(--card-2);
+      border: 1px solid var(--borda);
+      border-radius: 12px;
+      padding: 22px 20px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      transition: border-color 0.2s, background-color 0.2s;
+    }
+
+    .legal-card:hover,
+    .legal-card:focus {
+      border-color: var(--laranja);
+      background-color: #150800;
+      outline: none;
+    }
+
+    .legal-card-icon {
+      width: 38px;
+      height: 38px;
+      background-color: var(--borda-laranja);
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .legal-card-text span {
+      display: block;
+      font-size: 0.7rem;
+      color: var(--texto-suave);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 3px;
+    }
+
+    .legal-card-text strong {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--texto);
+    }
+
+    .legal-card:hover .legal-card-text strong,
+    .legal-card:focus .legal-card-text strong {
+      color: var(--laranja-vivo);
+    }
+
+    /* ─── FOOTER ──────────────────────────────────── */
+    footer {
+      background-color: #050505;
+      padding: 36px 24px 48px;
+      text-align: center;
+      border-top: 1px solid var(--borda);
+    }
+
+    .footer-logo {
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--texto);
+      margin-bottom: 4px;
+    }
+
+    .footer-logo span {
+      color: var(--laranja-vivo);
+    }
+
+    .footer-slogan {
+      font-size: 0.75rem;
+      color: var(--texto-suave);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .footer-links a {
+      font-size: 0.82rem;
+      color: var(--texto-suave);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover,
+    .footer-links a:focus {
+      color: var(--laranja-vivo);
+      text-decoration: underline;
+    }
+
+    .footer-copy {
+      font-size: 0.78rem;
+      color: #444;
+    }
+
+    /* ─── DIVISOR LARANJA ─────────────────────────── */
+    .divisor {
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--laranja), transparent);
+      border: none;
+      margin: 0;
+    }
+
+    /* ─── RESPONSIVO ──────────────────────────────── */
+    @media (min-width: 768px) {
+      section {
+        padding: 72px 48px;
+      }
+
+      .hero {
+        padding: 96px 48px 104px;
+      }
+
+      footer {
+        padding: 48px 48px 60px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .hero,
+      section,
+      footer {
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero {
+        max-width: 100%;
+        padding: 104px 80px 112px;
+      }
+
+      .hero h1 { font-size: 3.2rem; }
+    }
+
+    /* ─── FOCO ACESSIBILIDADE ─────────────────────── */
+    :focus-visible {
+      outline: 2px solid var(--laranja-vivo);
+      outline-offset: 3px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════
+     HEADER
+══════════════════════════════════════════ -->
+<header role="banner">
+  <div class="header-inner">
+    <svg class="header-logo-icon" viewBox="0 0 36 36" fill="none" aria-hidden="true" focusable="false">
+      <rect width="36" height="36" rx="9" fill="#E65100"/>
+      <rect x="7" y="10" width="22" height="2.5" rx="1.25" fill="#fff"/>
+      <rect x="7" y="16" width="16" height="2.5" rx="1.25" fill="#fff"/>
+      <rect x="7" y="22" width="19" height="2.5" rx="1.25" fill="rgba(255,255,255,0.55)"/>
+    </svg>
+    <div class="header-text">
+      <span class="header-nome">HORIZONTE <span>NEWS</span></span>
+      <span class="header-sub">Jornalismo Independente</span>
+    </div>
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════
+     HERO
+══════════════════════════════════════════ -->
+<main id="conteudo-principal">
+  <section class="hero" aria-labelledby="hero-titulo">
+    <div class="hero-badge" aria-label="Site oficial do aplicativo">Site Oficial do Aplicativo</div>
+    <h1 id="hero-titulo">Informação local.<br/><em>Jornalismo independente.</em></h1>
+    <p class="hero-desc">
+      Horizonte News é o aplicativo de notícias focado em
+      <strong>Horizonte, Ceará</strong> — levando informação local de forma
+      independente e acessível direto para o seu celular.
+    </p>
+    <a href="#contato" class="btn-primary" aria-label="Ir para a seção de contato e suporte">
+      Conheça o Horizonte News
+    </a>
+  </section>
+
+  <hr class="divisor"/>
+
+  <!-- ══════════════════════════════════════
+       SOBRE O APLICATIVO
+  ══════════════════════════════════════════ -->
+  <section id="sobre" aria-labelledby="sobre-titulo">
+    <p class="section-label">O Aplicativo</p>
+    <h2 class="section-title" id="sobre-titulo">Sobre o <span>Horizonte News</span></h2>
+    <p class="section-body">
+      O Horizonte News é um portal de notícias independente desenvolvido para
+      facilitar o acesso à informação local. Com foco na cidade de
+      <strong>Horizonte, Ceará</strong>, o aplicativo reúne notícias, reportagens
+      e conteúdos relevantes da região em um só lugar, de forma prática e acessível.
+    </p>
+    <p class="section-body">
+      Esta página é o canal oficial de informações e suporte do aplicativo
+      Horizonte News. Aqui você encontra contato direto com o responsável,
+      além das informações legais sobre o uso do serviço.
+    </p>
+
+    <div class="sobre-grid" role="list">
+
+      <div class="sobre-card" role="listitem">
+        <div class="sobre-card-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M2 4h16v2H2V4zm0 5h10v2H2V9zm0 5h13v2H2v-2z" fill="#fff"/>
+          </svg>
+        </div>
+        <h3>Notícias locais</h3>
+        <p>Cobertura jornalística independente com foco em Horizonte, Ceará, e região.</p>
+      </div>
+
+      <div class="sobre-card" role="listitem">
+        <div class="sobre-card-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <circle cx="10" cy="10" r="7" stroke="#fff" stroke-width="2"/>
+            <path d="M10 6v4l2.5 2.5" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>Informação em tempo real</h3>
+        <p>Notificações sobre as últimas notícias diretamente no seu dispositivo.</p>
+      </div>
+
+      <div class="sobre-card" role="listitem">
+        <div class="sobre-card-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M10 2a8 8 0 100 16A8 8 0 0010 2zm0 3a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm0 5.5c1.66 0 3 .67 3 1.5v.5H7v-.5c0-.83 1.34-1.5 3-1.5z" fill="#fff"/>
+          </svg>
+        </div>
+        <h3>Jornalismo independente</h3>
+        <p>Conteúdo produzido de forma independente, com foco na comunidade local.</p>
+      </div>
+
+      <div class="sobre-card" role="listitem">
+        <div class="sobre-card-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <rect x="3" y="3" width="14" height="14" rx="3" stroke="#fff" stroke-width="2"/>
+            <path d="M7 10h6M10 7v6" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>Fácil de usar</h3>
+        <p>Interface simples e acessível, pensada para todos os perfis de usuários.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="divisor"/>
+
+  <!-- ══════════════════════════════════════
+       CONTATO OFICIAL / SUPORTE
+  ══════════════════════════════════════════ -->
+  <section id="contato" class="contato-section" aria-labelledby="contato-titulo">
+    <p class="section-label">Suporte</p>
+    <h2 class="section-title" id="contato-titulo">Contato Oficial <span>/ Suporte</span></h2>
+    <p class="contato-intro">
+      Para dúvidas, sugestões, solicitações de exclusão de conta ou qualquer
+      assunto relacionado ao aplicativo Horizonte News, utilize os canais abaixo.
+    </p>
+
+    <div class="contato-grid">
+
+      <!-- CARD E-MAIL -->
+      <div class="contato-card" role="region" aria-label="Contato por e-mail">
+        <div class="contato-card-header">
+          <div class="contato-icon-wrap" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+              <rect x="2" y="5" width="18" height="13" rx="2.5" stroke="#fff" stroke-width="1.8"/>
+              <path d="M2 7.5l9 6 9-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <div class="contato-card-tipo">E-mail oficial</div>
+            <div class="contato-card-titulo">Suporte por e-mail</div>
+          </div>
+        </div>
+
+        <div class="contato-dado" aria-label="Endereço de e-mail: diego.magno321@gmail.com">
+          diego.magno321@gmail.com
+        </div>
+
+        <a href="mailto:diego.magno321@gmail.com"
+           class="contato-btn"
+           aria-label="Enviar e-mail para diego.magno321@gmail.com">
+          <svg width="17" height="17" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+            <rect x="2" y="5" width="18" height="13" rx="2.5" stroke="#fff" stroke-width="1.8"/>
+            <path d="M2 7.5l9 6 9-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+          Enviar e-mail
+        </a>
+      </div>
+
+      <!-- CARD WHATSAPP -->
+      <div class="contato-card" role="region" aria-label="Contato por WhatsApp">
+        <div class="contato-card-header">
+          <div class="contato-icon-wrap" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+              <path d="M11 2C6.03 2 2 6.03 2 11c0 1.6.42 3.1 1.15 4.4L2 20l4.75-1.12A8.96 8.96 0 0011 20c4.97 0 9-4.03 9-9s-4.03-9-9-9z" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/>
+              <path d="M8 8.5s.5 1 1.5 2 2 1.5 2 1.5l1-1s.5-.3 1 .2l1.2 1.2c.4.4.2.9-.1 1.2-.8.8-1.8 1-3-.2C10.4 12.2 9 10.4 8.5 9.2c-.4-.9 0-1.6.5-1.9.4-.3.8-.2 1 .2z" fill="#fff"/>
+            </svg>
+          </div>
+          <div>
+            <div class="contato-card-tipo">WhatsApp / Telefone</div>
+            <div class="contato-card-titulo">Suporte por WhatsApp</div>
+          </div>
+        </div>
+
+        <div class="contato-dado" aria-label="Número de WhatsApp: (85) 99413-0806">
+          (85) 99413-0806
+        </div>
+
+        <a href="https://wa.me/5585994130806"
+           class="contato-btn"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Abrir conversa no WhatsApp com o número 85 99413-0806">
+          <svg width="17" height="17" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+            <path d="M11 2C6.03 2 2 6.03 2 11c0 1.6.42 3.1 1.15 4.4L2 20l4.75-1.12A8.96 8.96 0 0011 20c4.97 0 9-4.03 9-9s-4.03-9-9-9z" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/>
+            <path d="M8 8.5s.5 1 1.5 2 2 1.5 2 1.5l1-1s.5-.3 1 .2l1.2 1.2c.4.4.2.9-.1 1.2-.8.8-1.8 1-3-.2C10.4 12.2 9 10.4 8.5 9.2c-.4-.9 0-1.6.5-1.9.4-.3.8-.2 1 .2z" fill="#fff"/>
+          </svg>
+          Chamar no WhatsApp
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="divisor"/>
+
+  <!-- ══════════════════════════════════════
+       INFORMAÇÕES
